@@ -1,0 +1,12 @@
+.profile__info {
+	display: flex;
+	justify-content: flex-start;
+	grid-area: profile__info;
+	overflow: auto;
+}
+
+@media (max-width: 680px) {
+	.profile__info {
+		justify-content: center;
+	}
+}

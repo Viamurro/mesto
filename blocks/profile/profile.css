@@ -1,0 +1,42 @@
+.profile {
+	display: grid;
+	max-width: 880px;
+	height: 120px;
+	grid-template-areas:
+		"profile__avatar profile__info add-button"
+		"profile__avatar profile__user-jop add-button";
+	grid-template-columns: 150px auto 150px;
+	grid-template-rows: 72px 1fr;
+	width: 100%;
+	margin: 40px auto 0;
+}
+
+
+@media (max-width: 740px) {
+	.profile {
+		grid-template-areas:
+			"profile__avatar profile__info"
+			"profile__avatar profile__user-jop"
+			"add-button add-button";
+		grid-template-columns: 150px 1fr;
+		grid-template-rows: 72px 48px 70px;
+		max-width: 581px;
+		height: 190px;
+	}
+}
+
+
+@media (max-width: 680px) {
+	.profile {
+		width: 282px;
+		height: 286px;
+		grid-template-areas:
+			"profile__avatar profile__avatar profile__avatar"
+			"profile__info profile__info profile__info"
+			"profile__user-jop profile__user-jop profile__user-jop"
+			"add-button add-button add-button";
+		grid-template-columns: 1fr 189px 1fr;
+		grid-template-rows: 146px 40px 1fr 50px;
+		margin: 42px auto 0;
+	}
+}

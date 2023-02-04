@@ -18,3 +18,8 @@
 Файловая структуора по БЭМ (Nested)
 Адаптация под разные разрешения экрана
 В проекте присутсвует небольшой скрипт на JavaScript
+
+
+**Ссылка на GitHub Pages**
+
+* [Ссылка на GitHub Pages](https://viamurro.github.io/mesto/)

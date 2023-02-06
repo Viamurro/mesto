@@ -1,7 +1,6 @@
 .profile {
 	display: grid;
 	max-width: 880px;
-	height: 120px;
 	grid-template-areas:
 		"profile__avatar profile__info add-button"
 		"profile__avatar profile__user-jop add-button";

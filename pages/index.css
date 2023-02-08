@@ -37,6 +37,4 @@
 @import url(../blocks/popup/__form/popup__form.css);
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__save-button/popup__save-button.css);
-@import url(../blocks/input/_item/input_place_user-job.css);
-@import url(../blocks/input/_item/input_place_user-name.css);
-@import url(../blocks/input/input.css);
+@import url(../blocks/popup/__input/popup__input.css);

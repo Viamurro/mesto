@@ -1,7 +1,7 @@
 //НАЙДЕМ ВСЕ ПОПАПЫ НА СТРАНИЦЕ
-let formElement = document.querySelector('.popup__form'); // Воспользуйтесь методом querySelector()
-let nameInput = document.querySelector('.popup__input_el_name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = document.querySelector('.popup__input_el_job'); // Воспользуйтесь инструментом .querySelector()
+const formElement = document.querySelector('.popup__form');
+const nameInput = document.querySelector('.popup__input_el_name');
+const jobInput = document.querySelector('.popup__input_el_job');
 const popups = document.querySelectorAll('.popup');
 const saveButton = document.querySelector('.popup__save-button');
 const userName = document.querySelector('.profile__user-name');
@@ -10,8 +10,8 @@ const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const popupAddCard = document.querySelector('.popup_type_add-card');
 const profileForm = document.querySelector('.popup__form_profile');
 const typeAddCard = document.querySelector('.popup_type_add-card');
-const imgPopup = document.querySelector('.popup_image');
-const titlePopup = imgPopup.querySelector('.popup__text');
+const popupImage = document.querySelector('.popup_image');
+const titlePopup = popupImage.querySelector('.popup__text');
 const cardsContainer = document.querySelector('.elements');
 const templateCard = document.querySelector('.template-card');
 const popupActiveClass = 'popup_is-opened';
@@ -28,10 +28,15 @@ function addCardListeners(card, cardData) {
 const formAddNewCard = popupAddCard.querySelector('.popup__form');
 formAddNewCard.addEventListener('submit', addCard);
 const cardElement = document.querySelector('.template-card').content;
+const element = cardElement.querySelector('.element')
+
+const addCardButton = document.querySelector('.profile__add-button');
+const editButton = document.querySelector('.profile__edit-button');
+const imgButton = document.querySelector('.element__photo');
 
 // СОЗДАНИЕ CARD
 function createCard(data) {
-	const newCard = cardElement.querySelector('.element').cloneNode(true);
+	const newCard = element.cloneNode(true);
 	const elementImage = newCard.querySelector('.element__photo');
 
 	elementImage.src = data.link;
@@ -70,34 +75,6 @@ function addCard(event) {
 	hidePopup(popupAddCard);
 }
 
-// ИНИЦИАЛИЗАЦИЯ НАЧАЛЬНЫХ ЗНАЧЕНИЙ CARDS
-const initialCards = [
-	{
-		name: 'Архыз',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-	},
-	{
-		name: 'Челябинская область',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-	},
-	{
-		name: 'Иваново',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-	},
-	{
-		name: 'Камчатка',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-	},
-	{
-		name: 'Холмогорский район',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-	},
-	{
-		name: 'Байкал',
-		link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-	}
-];
-
 // ИНИЦИЛИЗАЦИЯ CARDS
 initialCards.map(addTemplateCard);
 
@@ -119,10 +96,6 @@ function hidePopup(/** HTMLElement*/ popup) {
 	document.removeEventListener('keydown', closeByEsc);
 }
 
-const addCardButton = document.querySelector('.profile__add-button');
-const editButton = document.querySelector('.profile__edit-button');
-const imgButton = document.querySelector('.element__photo');
-
 addCardButton.addEventListener('click', () => showPopup(popupAddCard));
 editButton.addEventListener('click', fillProfileInputs);
 
@@ -135,13 +108,13 @@ function closeByEsc(event) {
 }
 
 // ФУНКЦИЯ ОТКРЫТИЯ ФОТОГРАФИИ В РЕЖИМЕ ПРОСМОТРА
-const elImg = imgPopup.querySelector('img');
+const imagePopup = popupImage.querySelector('img');
 
 function openPopupCardShow(cardData) {
-	elImg.src = cardData.link;
-	elImg.alt = cardData.name;
+	imagePopup.src = cardData.link;
+	imagePopup.alt = cardData.name;
 	titlePopup.textContent = cardData.name;
-	showPopup(imgPopup);
+	showPopup(popupImage);
 };
 
 profileForm.addEventListener('submit', function (event) {

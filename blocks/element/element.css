@@ -3,4 +3,5 @@
 	flex-direction: column;
 	box-sizing: border-box;
 	width: 282px;
+	position: relative;
 }
